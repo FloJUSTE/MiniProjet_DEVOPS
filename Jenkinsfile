@@ -4,7 +4,7 @@
 pipeline {
 
   environment {
-    IMAGE_NAME = "staticWeb_nginx"
+    IMAGE_NAME = "staticWebnginx"
     IMAGE_TAG = "latest"
     ID_DOCKER = "papaflo"
     DOCKER_CRED = credentials('dockerhub_pwd')
@@ -15,7 +15,7 @@ pipeline {
   agent none
   
   stages {
-    stage('Création image') {
+    stage('Creation image') {
       agent any
       steps {
         script {
@@ -24,7 +24,7 @@ pipeline {
       }
     }
     
-    stage('Création du conteneur') {
+    stage('Creation du conteneur') {
       agent any
       steps {
         script {
