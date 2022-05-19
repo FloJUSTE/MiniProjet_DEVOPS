@@ -29,7 +29,7 @@ pipeline {
       steps {
         script {
           sh '''
-            docker run -d -p 80:80 --name $IMAGE_NAME $ID_DOCKER/$IMAGE_NAME:$IMAGE_TAG 
+            docker run -d -p 80:80 -e PORT=80 --name $IMAGE_NAME $ID_DOCKER/$IMAGE_NAME:$IMAGE_TAG 
             sleep 5
           '''
         }
@@ -72,7 +72,7 @@ pipeline {
   
     stage('Pousser image sur HEROKU en STAGING') {
       when {
-        expression { GIT_BRANCH == 'origin/master' }
+        expression { GIT_BRANCH == 'origin/main' }
       }
       agent any
       environment {
@@ -92,7 +92,7 @@ pipeline {
     
     stage('Pousser image sur HEROKU en PRODUCTION') {
       when {
-        expression { GIT_BRANCH == 'origin/master' }
+        expression { GIT_BRANCH == 'origin/main' }
       }
       agent any
       environment {
