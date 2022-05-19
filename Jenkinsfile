@@ -4,7 +4,7 @@
 pipeline {
 
   environment {
-    IMAGE_NAME = "staticWebnginx"
+    IMAGE_NAME = "staticwebnginx"
     IMAGE_TAG = "latest"
     ID_DOCKER = "papaflo"
     DOCKER_CRED = credentials('dockerhub_pwd')
